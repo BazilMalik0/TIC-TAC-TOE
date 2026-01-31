@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto+Slab:wght@400;700&display=swap");
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto Slab', sans-serif;
+  font-family: "Roboto Slab", sans-serif;
   line-height: 1.5;
 
   color: #ebe7ef;
@@ -18,14 +18,18 @@ html {
 }
 
 body {
-  background: radial-gradient(
+  background:
+    radial-gradient(
       circle at top,
       rgba(241, 210, 70, 0.98),
       rgba(250, 176, 103, 0.87)
     ),
-    url('bg-pattern-dark.png');
+    url("bg-pattern-dark.png");
   background-repeat: repeat;
-  background-size: 100% 100%, 30% 30%, 100% 100%;
+  background-size:
+    100% 100%,
+    30% 30%,
+    100% 100%;
   min-height: 110rem;
 }
 
@@ -41,7 +45,7 @@ header img {
 }
 
 h1 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 3rem;
   margin: 0 auto 3rem auto;
   color: #3f3b00;
@@ -154,7 +158,7 @@ ol {
   background: none;
   color: #f8c031;
   border: none;
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.7);
   animation: pulse-text-size 2s infinite ease-out;
@@ -187,7 +191,7 @@ ol {
   color: #3f3b00;
   font-size: 5rem;
   cursor: pointer;
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   padding: 1rem;
 }
 
@@ -206,7 +210,7 @@ ol {
 }
 
 #game-over h2 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 4rem;
   text-align: center;
   color: #fcd256;
@@ -229,7 +233,9 @@ ol {
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s, color 0.2s;
+  transition:
+    all 0.2s,
+    color 0.2s;
   box-shadow: 0 0 8px rgba(255, 187, 0, 0.4);
 }
 
@@ -266,7 +272,7 @@ ol {
 }
 
 #game-hints h2 {
-  font-family: 'Caprasimo', cursive;
+  font-family: "Caprasimo", cursive;
   font-size: 2rem;
   margin: 0;
 }
@@ -348,5 +354,169 @@ ol {
   }
   100% {
     transform: scale(1);
+  }
+}
+/* --- Professional Responsive Suite --- */
+
+/* 1. Tablets and Small Laptops (Up to 768px) */
+@media (max-width: 768px) {
+  #game-container {
+    max-width: 90%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  #game-board button {
+    width: 6rem;
+    height: 6rem;
+    font-size: 3.5rem;
+  }
+
+  #game-board {
+    gap: 1rem;
+  }
+
+  #game-board ol {
+    gap: 1rem;
+  }
+}
+
+/* --- Professional 3x3 Grid Preservation --- */
+
+/* --- Professional Sequential Mobile Layout --- */
+
+@media (max-width: 480px) {
+  /* 1. Header & Title: Scaled for mobile */
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* 2. Players: Stacked line-by-line to prevent squashing */
+  #players {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  #players li {
+    width: 100%;
+    justify-content: center; /* Center player info line-by-line */
+    padding: 0.5rem 0;
+  }
+
+  .player-name,
+  .player input {
+    width: 8rem; /* Consistent width for inputs */
+    font-size: 0.9rem;
+  }
+
+  /* 3. Game Board: Forced 3x3 Grid Preservation */
+  #game-board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem !important; /* Tight vertical gap */
+    margin: 2rem 0;
+  }
+
+  #game-board ol {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap !important; /* Forces 3 items per line */
+    justify-content: center;
+    gap: 0.5rem !important; /* Tight horizontal gap */
+    width: 100%;
+  }
+
+  #game-board button {
+    width: clamp(4.5rem, 28vw, 6rem); /* Fluid sizing to fit all phones */
+    height: clamp(4.5rem, 28vw, 6rem);
+    font-size: 2.5rem;
+    padding: 0.5rem;
+  }
+
+  /* 4. Game Over: Centered overlay items */
+  #game-over {
+    padding: 2rem;
+  }
+
+  #game-over h2 {
+    font-size: 2.5rem; /* Prevents title from breaking box */
+    margin-bottom: 1rem;
+  }
+
+  #game-over p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 5. Log & Hints: Clean spacing */
+  #log {
+    max-width: 100%;
+    font-size: 0.8rem;
+  }
+
+  #game-hints h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Extra safety for very narrow devices (iPhone SE/Foldables) */
+@media (max-width: 350px) {
+  #game-container {
+    padding: 1rem 0.5rem;
+  }
+
+  #game-board button {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+}
+/* 3. Extra Small Devices / Foldables (Up to 320px) */
+@media (max-width: 320px) {
+  #game-board button {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+
+  #game-board {
+    gap: 0.5rem;
+  }
+
+  #game-board ol {
+    gap: 0.5rem;
+  }
+}
+
+/* 4. Landscape Orientation Fix */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding: 0.5rem;
+  }
+  header img {
+    width: 4rem;
+    margin: 0.5rem auto;
+  }
+  #game-container {
+    margin: 0.5rem auto;
+  }
+}
+
+/* 5. Accessibility: Support for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  #players.highlight-player li.active,
+  #pre-game button,
+  #game-over,
+  #log li,
+  .player input {
+    animation: none !important;
+    transition: none !important;
   }
 }
